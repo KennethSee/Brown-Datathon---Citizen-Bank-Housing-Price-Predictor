@@ -3,8 +3,6 @@ import pandas as pd
 
 df = pd.read_csv('sliced_data.csv')
 
-print(df.head())
-
 def transaction_year(year):
     year_end = year[-2::]
     if int(year_end) < 20:
@@ -20,4 +18,9 @@ df['transaction_date'] = df['transaction_date'].apply(transaction_year)
 
 # remove whitespace in city
 df['prop_city'] = df['prop_city'].apply(lambda x: str(x).replace(' ',''))
-print(df['prop_city'].unique())
+# print(df['prop_city'].unique())
+
+# remove 0 and NaN values from sale amount
+df.dropna(subset=['sale_amt'])
+df = df[df['sale_amt'] != 0]
+# print(df['sale_amt'].unique())

@@ -45,10 +45,13 @@ setup(
     package_dir={'': 'src'},
     packages=find_packages('src'),
     install_requires=[
-        'jinja2',
-        'invoke>=0.13',
-        'unidecode',
-        'six',
+        'numpy',
+        'pandas',
+        'matplotlib',
+        'seaborn',
+        'sklearn',
+        'tensorflow',
+        'request'
     ],
     extras_require={
         'dev': [
